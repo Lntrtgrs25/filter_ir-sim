@@ -1,0 +1,25 @@
+world:
+  height: 6.0          # tinggi lapangan
+  width: 9.0           # lebar lapangan
+  step_time: 0.1  # 10Hz calculate each step
+  sample_time: 0.1  # 10 Hz for render and data extraction 
+  # obstacle_map: ground.png
+
+robot:
+  - name: robot_ekf
+    shape:
+      name: circle
+      radius: 0.10    
+    state: [4.5, 3.0, 0.0]
+    color: 'b'         # blue
+
+obstacle:
+  # bola
+  - name: bola
+    shape:
+      name: circle
+      radius: 0.05    
+    state: [4.7, 3.0, 0.0]
+    color: 'r'
+
+#nb : the robot and ball is static, just for checking set up of EKF filter
