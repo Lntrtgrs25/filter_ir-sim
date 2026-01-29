@@ -1,0 +1,60 @@
+world:                  
+  height: 6.0                                  
+  width: 9.0                                  
+  step_time: 0.1 
+  sample_time: 0.1  
+  offset: [0, 0]  
+  collision_mode: 'stop' 
+  control_mode: 'unobstructed' 
+  # obstacle_map: ground.png
+
+
+robot:
+  - name: striker
+    shape: {name: 'circle', radius: 0.10} # diameter 0.20 m => 20 cm
+    color: 'b'                            # blue
+    kinematics: {name: 'diff'}          # Differential drive robots (e.g., two-wheeled) use linear and angular velocity to rotate in place. (arrow sign)
+    behavior: {name: 'dash'}              # Moves the robot towards its goal at maximum speed.
+    state: [4.5, 3.7, 0.0]
+    goal:  [5.3, 3.7, 0.0]
+    vel_max: [0.1, 0.0]
+    vel_min: [0.0, 0.0]
+    # angle_range: [-pi, pi]
+    static: False                        # True = The robot does not move. False = buat rotate
+
+    #Kalau tanpa sensor
+    fov: 1.5 
+    fov_radius: 2.0
+    plot:
+      show_fov: True
+      show_arrow: False
+      arrow_length: 0.4
+    # #Kalau pakai sensor for obstacle
+    # sensors: 
+    #   - name: 'lidar2d'
+    #     range_min: 0
+    #     range_max: 2.0                    # Maximum range of the sensor in meters.
+    #     angle_range: 0.75                 # Total angle range of the sensor.
+    #     number: 60                        # Number of beams.
+    #     noise: True                       # Add noise to the sensor measurements.
+    #     alpha: 0.1                        # Transparency for plotting.
+
+
+obstacle:
+  - name: bola 
+    shape: {name: 'circle', radius: 0.05} # diameter 0.10 m => 10 cm
+    color: 'r'                            # red
+    kinematics: {name: 'diff'}            # Differential drive robots use linear and angular velocity to rotate in place.
+    # behavior: {name: 'dash'}              # Moves the robot towards its goal at maximum speed.
+    state: [5.3, 3.7, -1.57]   
+    # goal:  [5.3, 2.5, 0.0]
+    # vel_max: [0.3, 0.0]
+    # vel_min: [0.0, 0.0]
+    plot:
+      show_goal: True
+      show_trajectory: True
+      # show_arrow: True
+      # arrow_length: 0.4
+
+
+# nb : the robot is moving with linear line

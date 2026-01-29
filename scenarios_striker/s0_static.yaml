@@ -6,12 +6,19 @@ world:
   # obstacle_map: ground.png
 
 robot:
-  - name: robot_ekf
+  - name: striker
     shape:
       name: circle
       radius: 0.10    
     state: [4.5, 3.0, 0.0]
     color: 'b'         # blue
+
+    fov: 1.5 
+    fov_radius: 2.0
+    plot:
+      show_fov: True
+      show_arrow: False
+      arrow_length: 0.4
 
 obstacle:
   # bola

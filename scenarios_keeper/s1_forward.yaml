@@ -1,0 +1,57 @@
+world:
+  height: 6.0          # tinggi lapangan
+  width: 9.0           # lebar lapangan
+  step_time: 0.1  # 10Hz calculate each step
+  sample_time: 0.1  # 10 Hz for render and data extraction 
+  obstacle_map: gawang.png
+
+robot:
+  # - name: striker
+  #   kinematics: {name: 'diff'}
+  #   behavior: {name: 'dash'}   
+  #   shape:
+  #     name: circle
+  #     radius: 0.15    
+  #   state: [4.7, 3.0, 3.14]
+  #   color: 'b'         # blue
+
+  #   fov: 1.5 
+  #   fov_radius: 2.0
+  #   plot:
+  #     show_fov: True
+  #     show_arrow: False
+  #     arrow_length: 0.4
+
+  - name: keeper
+    kinematics: {name: 'omni'} # GANTI INI dari 'diff' ke 'omni'
+    behavior: {name: 'dash'}
+    shape: 
+      name: circle
+      radius: 0.15
+    state: [1.0, 3.0, 0.0]     # Mulai dengan menghadap ke arah datangnya bola (0 rad)
+    color: 'b'
+
+    fov: 1.5 
+    fov_radius: 2.0
+    plot:
+      show_fov: True
+      show_arrow: False
+      arrow_length: 0.4
+
+obstacle:
+  - name: bola 
+    shape: {name: 'circle', radius: 0.10}
+    color: 'r'                            # red
+    kinematics: {name: 'diff'}            # Differential drive robots use linear and angular velocity to rotate in place.
+    behavior: {name: 'dash'}              # Moves the robot towards its goal at maximum speed.
+    state: [4.0, 3.0, 3.14]   
+    goal:  [1.0, 3.0, 3.14]
+    vel_max: [0.5, 1.0]
+    vel_min: [0.0, 0.0]
+    plot:
+      show_goal: True
+      show_trajectory: True
+      # show_arrow: True
+      # arrow_length: 0.4
+
+#nb : the robot and ball is static, just for checking set up of EKF filter
