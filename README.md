@@ -7,3 +7,9 @@ This project implements an **Extended Kalman Filter (EKF)** to track a noisy bal
         - Model: Constant Velocity (CV) kinematic model.
         - State Vector: X=[x,y,v,θ]T.
         - Tuning: Utilizes Covariance Matrices Q (Process Noise) and R (Measurement Noise) to balance model trust vs. sensor trust.
+
+## How To Run
+   1. cd [name package]
+   2. source ~/ekf_ir-sim_env/bin/activate
+   3. If you wanna keeper run -> python3 run_keeper.py
+      If you wanna striker run -> python3 run_striker.py
